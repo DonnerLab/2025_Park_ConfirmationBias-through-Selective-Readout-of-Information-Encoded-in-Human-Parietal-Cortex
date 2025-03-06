@@ -15,7 +15,7 @@ https://github.com/panzerilab/MINT
 BIORXIV article: 
 MINT: a toolbox for the analysis of multivariate neural information coding and transmission
 Gabriel Matías Lorenz, Nicola M. Engel, Marco Celotto, Loren Kocillari, Sebastiano Curreli, Tommaso Fellin, Stefano Panzeri
-https://doi.org/10.1101/2024.11.04.621910
+https://doi.org/10.1101/2024.11.04.621910, PLOS Computational Biology, in press. 
 
 Scripts which compute the information measures using MINT with source data (principal components, can be found here: https://www.fdr.uni-hamburg.de/deposit/xxxx):
   Intersection information: confbias_MINTII_int12_cic.m 
