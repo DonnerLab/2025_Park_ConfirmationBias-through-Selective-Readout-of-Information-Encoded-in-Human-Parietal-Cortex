@@ -1,6 +1,7 @@
 # 2025_Park_Confirmation_Bias_through_Selective_Use_of_Evidence_in_Human_Cortex
 
 MATLAB codes used to compute information measures and behavioral metrics in article: <link to paper, DOI>
+MATLAB version: MATLAB2020b, MATLAB2024
 
 The Figure indices corresponding to figures in the manuscript are included in the script name. 
 Script Figure4_*.m plots for main Figure4, and also Supplementary Figures S8, S9 and S10. 
