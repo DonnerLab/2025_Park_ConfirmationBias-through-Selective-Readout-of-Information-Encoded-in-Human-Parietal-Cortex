@@ -5,7 +5,8 @@ MATLAB version: MATLAB2020b, MATLAB2024
 
 The Figure indices corresponding to figures in the manuscript are included in the script name. 
 Script Figure4_*.m plots for main Figure4, and also Supplementary Figures S8, S9 and S10. 
-The source data for plotting the figures can be found here: https://www.fdr.uni-hamburg.de/deposit/xxxx
+The source data for plotting the figures can be found here at the University of Hamburg 
+Center for Sustainable Data Management: https://doi.org/10.25592/uhhfdm.16918
 
 plot_maps folder contains the necessary data and code for plotting brain maps with 180 cortical parcels, with the Glasser atlas (Glasser et al. A multi-modal parcellation of human cerebral cortex, Nature. 2016 Aug 11;536(7615):171–178. doi: 10.1038/nature18933)
 
