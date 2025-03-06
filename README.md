@@ -3,7 +3,8 @@
 MATLAB codes used to compute information measures and behavioral metrics in article: <link to paper, DOI>
 MATLAB version: MATLAB2020b, MATLAB2024
 
-The Figure indices corresponding to figures in the manuscript are included in the script name. 
+The Figure indices corresponding to figures in the manuscript are included in the script name.
+Script Figure3_*.m can be used to also plot brain maps in Figures S7, S12.
 Script Figure4_*.m plots for main Figure4, and also Supplementary Figures S8, S9 and S10. 
 The source data for plotting the figures can be found here at the University of Hamburg 
 Center for Sustainable Data Management: https://doi.org/10.25592/uhhfdm.16918
