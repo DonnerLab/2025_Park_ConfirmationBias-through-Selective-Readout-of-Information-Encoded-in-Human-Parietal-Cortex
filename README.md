@@ -7,9 +7,12 @@ The Figure indices corresponding to figures in the manuscript are included in th
 Script Figure4_*.m plots for main Figure4, and also Supplementary Figures S8, S9 and S10. 
 The source data for plotting the figures can be found here: https://www.fdr.uni-hamburg.de/deposit/xxxx
 
+plot_maps folder contains the necessary data and code for plotting brain maps with 180 cortical parcels, with the Glasser atlas (Glasser et al. A multi-modal parcellation of human cerebral cortex, Nature. 2016 Aug 11;536(7615):171–178. doi: 10.1038/nature18933)
+
+
 Computation of the information measures which are central to this project was done with the MINT:
 https://github.com/panzerilab/MINT
-
+BIORXIV article: 
 MINT: a toolbox for the analysis of multivariate neural information coding and transmission
 Gabriel Matías Lorenz, Nicola M. Engel, Marco Celotto, Loren Kocillari, Sebastiano Curreli, Tommaso Fellin, Stefano Panzeri
 https://doi.org/10.1101/2024.11.04.621910
@@ -20,5 +23,4 @@ Scripts which compute the information measures using MINT with source data (prin
 
 Script which computes the intersection information linear proxy, corr(s^hat, E) in Figure S11:
   confbias_regress_sample_int12_cic.m
-
-  
+ 
