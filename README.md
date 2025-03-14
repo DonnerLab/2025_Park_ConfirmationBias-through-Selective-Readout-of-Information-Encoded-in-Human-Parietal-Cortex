@@ -19,7 +19,7 @@ MINT: a toolbox for the analysis of multivariate neural information coding and t
 Gabriel Matías Lorenz, Nicola M. Engel, Marco Celotto, Loren Kocillari, Sebastiano Curreli, Tommaso Fellin, Stefano Panzeri
 https://doi.org/10.1101/2024.11.04.621910, PLOS Computational Biology, in press. 
 
-Scripts which compute the information measures using MINT with source data (principal components, can be found here: https://www.fdr.uni-hamburg.de/deposit/xxxx):
+Scripts which compute the information measures using MINT with source data (principal components:
   Intersection information: confbias_MINTII_int12_cic.m 
   Mutual information: confbias_MINTMI_int12_SE.m
 
