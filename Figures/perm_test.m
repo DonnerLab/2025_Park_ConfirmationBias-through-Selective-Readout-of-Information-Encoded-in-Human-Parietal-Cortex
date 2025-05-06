@@ -34,6 +34,7 @@ end
 cfg.critval = abs(tinv(ARG.pcrit/2,size(tmp,1)-1)); % 0.05 two-sided. critical cutoff value for cluster members if parametric
 [PosClus,NegClus] = eegck_clusterstats(cfg,tval',tval_boot);
 [~,index] = eegck_stripclusters(PosClus,NegClus,[size(tval, 2) 1]);
+% custom scripts from: https://github.com/christophckayser/clusterstat
 clear tmp tmpc
 %%%%%%%%%%% test 0.1-0.5 window %%%%%%%%%%%
 if isfield(ARG, 'tw')
