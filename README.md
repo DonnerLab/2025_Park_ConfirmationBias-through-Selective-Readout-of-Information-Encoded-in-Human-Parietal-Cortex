@@ -14,10 +14,7 @@ plot_maps folder contains the necessary data and code for plotting brain maps wi
 
 Computation of the information measures which are central to this project was done with the MINT:
 https://github.com/panzerilab/MINT
-BIORXIV article: 
-MINT: a toolbox for the analysis of multivariate neural information coding and transmission
-Gabriel Matías Lorenz, Nicola M. Engel, Marco Celotto, Loren Kocillari, Sebastiano Curreli, Tommaso Fellin, Stefano Panzeri
-https://doi.org/10.1101/2024.11.04.621910, PLOS Computational Biology, in press. 
+Lorenz GM, Engel NM, Celotto M, Koçillari L, Curreli S, Fellin T, et al. (2025) MINT: A toolbox for the analysis of multivariate neural information coding and transmission. PLoS Comput Biol 21(4): e1012934. https://doi.org/10.1371/journal.pcbi.1012934
 
 Scripts which compute the information measures using MINT with source data (principal components:
   Intersection information: confbias_MINTII_int12_cic.m 
