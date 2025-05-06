@@ -220,12 +220,20 @@ vis.Units = 'centimeters';
 vis.Position = [2 2 5 4];
 data = [[diff_bias{1}(7, :) diff_bias{1}(8,:)]' [diff_bias{2}(7, :) diff_bias{2}(8,:)]'];
 hold all;
-bh = bar([1 2], mean(data, 1));
-bh.FaceColor = 'flat';
-bh.CData = [0.6 0.6 0.6; 0 0 0];
-bh.EdgeColor = 'none';
-plot([1 1], [mean(data(:, 1))-std(data(:, 1))/sqrt(60) mean(data(:, 1))+std(data(:, 1))/sqrt(60)], '-k')
-plot([2 2], [mean(data(:, 2))-std(data(:, 2))/sqrt(60) mean(data(:, 2))+std(data(:, 2))/sqrt(60)], '-k')
+% bh = bar([1 2], mean(data, 1));
+% bh.FaceColor = 'flat';
+% bh.CData = [0.6 0.6 0.6; 0 0 0];
+% bh.EdgeColor = 'none';
+% plot([1 1], [mean(data(:, 1))-std(data(:, 1))/sqrt(60) mean(data(:, 1))+std(data(:, 1))/sqrt(60)], '-k')
+% plot([2 2], [mean(data(:, 2))-std(data(:, 2))/sqrt(60) mean(data(:, 2))+std(data(:, 2))/sqrt(60)], '-k')
+ri = rand(2*size(diff_bias{1},2), 1); ri = 0.3*(ri-0.5);
+ph1 = scatter(1+ri, [diff_bias{1}(7, :) diff_bias{1}(8,:)]', 25,repmat([0 0 0], 2*size(diff_bias{1},2), 1), 'filled');
+ph2 = scatter(2+ri, [diff_bias{2}(7, :) diff_bias{2}(8,:)]', 25, repmat(0.6.*[1 1 1], 2*size(diff_bias{1},2), 1), 'filled');
+ph1.MarkerFaceAlpha = 0.3;
+ph2.MarkerFaceAlpha = 0.3;
+plot([1-0.3 1+0.3], [mean(data(:, 1)) mean(data(:, 1))], '-k', 'LineWidth', 1)
+plot([2-0.3 2+0.3], [mean(data(:, 2)) mean(data(:, 2))], '-k', 'color', [0.6 0.6 0.6], 'LineWidth', 1)
+
 box off; [h,p] = ttest(data(:, 1), data(:, 2));
 upl = 1.2*mean(data(:, 2))+std(data(:, 2))/sqrt(60);
 plot([1 2], upl*[1 1], '-k', 'LineWidth', 1); plot([1 1], [upl-0.02 upl], '-k'); plot([2 2], [upl-0.02 upl], '-k')

@@ -236,7 +236,11 @@ for c = 1:2
             pvalcic = perm_test_behav(con, incon, cfg1);
             conts = con - incon;
             pvalc = perm_test_behav(conts, incon, cfgc);
-            cfgb.pval = pvalcic; cfgb.ylm = ylm(1,:);cfgb.tw = [d1 d2];cfgb.pvalc = pvalc;
+            % compute Bayes factor from t-value
+            [~,~,~,stats] = ttest(conts);
+            BF10 = t1smpbf(stats.tstat,length(conts));
+            % plot bars
+            cfgb.pval = pvalcic; cfgb.ylm = ylm(1,:);cfgb.tw = [d1 d2];cfgb.pvalc = pvalc;cfgb.bf = BF10;
             plot_inset_bars3(con, incon, conts, cfgb);
             set(gca, 'ytick', [])
             if pd == 1

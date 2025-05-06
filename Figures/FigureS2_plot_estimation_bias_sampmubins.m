@@ -194,6 +194,11 @@ g1 = [ones(N*3, 1); 2*ones(N*3, 1)];
 g2 = [ones(N, 1); 2*ones(N, 1); 3*ones(N, 1); ones(N, 1); 2*ones(N, 1); 3*ones(N, 1)];
 [~, T] = anovan(y, {g1, g2}, 'model', 'interaction', 'varnames', {'g1','g2'});
 
+% compute partial eta-squared
+F = 10.7010;
+df_numerator = 2;
+df_denominator = 172;
+p_eta = F*df_numerator/(F*df_numerator + df_denominator); % 0.1107 (0.01-0.06: small, 0.06-0.14: medium, >0.14: large)
 
 cfg = [];
 cfg.ttest = 0;
@@ -233,7 +238,8 @@ subplot(1, 2, 1)
 yline(0, ':k'), hold on;
 data = [xhic{1}(1, :, gb)' xhic{1}(2, :, gb)' xhic{2}(1, :, gb)' xhic{2}(2, :, gb)'];
 for xp = 1:length(xpts)
-    sh = scatter(ones(N, 1)*xpts(xp), data(:, xp), 16, coltmp(xp,:), 'filled');
+    ri = rand(N, 1); ri = 0.3*(ri-0.5);
+    sh = scatter(xpts(xp)+ri, data(:, xp), 25, coltmp(xp,:), 'filled');
     sh.MarkerFaceAlpha = 0.3;
     hold on;
     plot([xpts(xp)-0.2 xpts(xp)+0.2], mean(data(:, xp)).*[1 1], 'LineStyle', '-', 'color', coltmp(xp,:), 'LineWidth', 3);
@@ -268,7 +274,8 @@ subplot(1, 2, 2)
 yline(0, ':k'), hold on;
 data = [xhic{1}(2, :, gb)' - xhic{1}(1, :, gb)' xhic{2}(2, :, gb)' - xhic{2}(1, :, gb)'];
 for xp = 1:length(xpts)
-    sh = scatter(ones(N, 1)*xpts(xp), data(:, xp), 16, coltmp(xp,:), 'filled'); hold on;
+    ri = rand(N, 1); ri = 0.2*(ri-0.5);
+    sh = scatter(xpts(xp)+ri, data(:, xp), 16, coltmp(xp,:), 'filled'); hold on;
     plot([xpts(xp)-0.1 xpts(xp)+0.1], mean(data(:, xp)).*[1 1], 'LineStyle', '-', 'color', coltmp(xp,:), 'LineWidth', 3);
     sh.MarkerFaceAlpha = 0.3;
     hold on;

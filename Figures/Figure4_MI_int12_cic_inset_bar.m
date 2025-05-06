@@ -89,24 +89,13 @@ for tar = 1:2
             end
             
             %%%%%%%%%%% test 0.1-0.5 window %%%%%%%%%%%
-            nperm = 5000;
+            [~, pvalcic(c-1,pd)] = perm_test(dat{1},dat{2},ARG,cfg);
+            text(1.3, 3*10^-3, sprintf('*p=%1.3f',pvalcic(c-1, pd)));
             cdat = cellfun(@(x) nanmean(x(:, d1:d2), 2), dat, 'UniformOutput', false);
-            tmp2 = cdat{1}-cdat{2};
-            mu_orig = mean(tmp2);
-            tmpc = cat(1, cdat{1}, cdat{2});
-            mu_boot = zeros(size(tmp2,2),nperm);
-            for b=1:nperm
-                % randomly switch labels between baseline and data
-                rs = cat(1, ones(size(tmp2,1), 1), 2*ones(size(tmp2,1), 1));
-                rs = logical(rs(randperm(length(rs)))-1);
-                tmp1v = tmpc(rs, :);
-                tmp2v = tmpc(~rs, :);
-                tmpv = tmp1v-tmp2v;
-                mu_boot(:,b) = mean(tmpv);
-            end
-            pvalcic(c-1, pd) = (sum(mu_boot>=abs(mu_orig)) + sum(mu_boot<=-abs(mu_orig)))/nperm;
-            text(1.3, 3*10^-3, sprintf('*p=%1.4f',pvalcic(c-1, pd)));
-            
+            % compute Bayes Factor based on t-value
+            [~,p,~,stats] = ttest(cdat{1},cdat{2}, 'Tail', 'both')
+            BF10 = t1smpbf(stats.tstat,length(cdat{1}));
+            text(1.3, 4.2*10^-3, sprintf('BF=%1.3f',BF10));           
             bh = bar([1 2], mean([cdat{1} cdat{2}], 1));
             bh.FaceColor = 'flat';
             bh.CData = [cols{1};cols{2}];
@@ -125,26 +114,3 @@ for tar = 1:2
 %     saveas(vis, sname, 'png')
     hgexport(vis, sname)
 end
-
-%% check used_samples
-figure
-
-for pd = 1:6
-    subplot(1, 6, pd)
-    tmp1 = used_samples(1, :, pd);
-    tmp1 = cell2mat(tmp1);
-    tmp1 = tmp1(:);
-    h1 = histogram(tmp1, -40:2:40); 
-    h1.FaceColor = 'g';
-    h1.FaceAlpha = 0.3;
-    hold on;
-    tmp2 = used_samples(2, :, pd);
-    tmp2 = cell2mat(tmp2);
-    tmp2 = tmp2(:);
-    h1 = histogram(tmp2, -40:2:40); 
-    h1.FaceColor = 'r';
-    h1.FaceAlpha = 0.3;
-    hold on;
-       
-end
-    

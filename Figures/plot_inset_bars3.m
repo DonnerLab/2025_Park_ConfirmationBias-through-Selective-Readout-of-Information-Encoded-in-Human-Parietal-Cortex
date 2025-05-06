@@ -16,6 +16,9 @@ plot([3 3], [nanmean(z)+std(z,[],1)/sqrt(size(z, 1)) nanmean(z)-std(z,[],1)/sqrt
 hold on;
 text(0.8, 0.8*cfg.ylm(2), sprintf('p=%1.4f',cfg.pval), 'FontSize', 7); hold on;
 text(2.1, 0.7*cfg.ylm(1), sprintf('*p=%1.4f',cfg.pvalc), 'FontSize', 5, 'Color', 'r');
+if isfield(cfg, 'bf')
+    text(2.1, 0.5*cfg.ylm(2), sprintf('BF=%1.3f',cfg.bf));
+end
 box off
 ylim(cfg.ylm); xlim([0.4 3.6]);
 ax = gca;

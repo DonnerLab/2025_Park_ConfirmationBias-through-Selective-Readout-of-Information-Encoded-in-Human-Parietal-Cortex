@@ -1,44 +1,12 @@
 %% Parameters
-pc_local = 1; % 1 is cluster
-if pc_local == 2
-    mdir = '/Users/hpark/Servers/mountpoint1';
-    fig_dir = '/Users/hpark/Research_wAlan/_manuscript/figures';
-elseif pc_local == 1
-    mdir = '/home/hamepark';
-    fig_dir = '/home/hamepark/P03/fig';
-end
-subj = get_sinfo(setdiff(1:34, [12 14 19 21]), 2);
+
+load('subjects.mat')
 
 conditions = {'attn', 'choice'};
 condt = {'Cue','Choice'};
 
 dots = {'s_1','s_2','s_3','s_4','s_5','s_6','s_7','s_8','s_9','s_{10}','s_{11}','s_{12}'};
 pdots = {'s_1:s_2','s_3:s_4','s_5:s_6','s_7:s_8','s_9:s_{10}','s_{11}:s_{12}'};
-
-
-%% Get Data
-fgmu = 0;
-
-nldd = {}; n = 1;
-npl = 1;
-
-for f = 1:length(fgmu)
-    fmise = cell(2, 1);
-    for c = 1:2
-        for s = 1:length(subj)
-            sname = sprintf('%s/P03/MI/%s/ISE_%s_%s_pm%d_np%d_CC.mat', mdir, subj{s}, subj{s}, conditions{c}, fgmu(f), npl)
-            try
-                load(sname, 'MIv', 'MInull')
-                fmise{c}(:, :, s) = MIv - nanmean(MInull, 3); % cs x pd: averaged across shuffles/subsampling
-            catch
-                nldd{n, 1} = sname; n = n+1;
-                fmise{c}(:, :, s) = nan;
-            end
-        end
-    end
-    save(sprintf('%s/P03/MI/gFTMI_SE_int12_pm%d_np%d_CCmatched.mat', mdir, fgmu(f), npl), 'fmise')
-end
-
 
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -130,6 +98,3 @@ saveas(vis, sname, 'png')
 exportgraphics(vis, [sname '.eps'],'ContentType','vector',...
     'BackgroundColor','none')
 
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%% SAMPLE MEAN %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

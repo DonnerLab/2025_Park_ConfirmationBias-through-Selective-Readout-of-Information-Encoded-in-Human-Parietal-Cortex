@@ -94,6 +94,10 @@ for c = 2:3
         [~, pvalcic(c-1,pd)] = perm_test(dat{1},dat{2},ARG,cfg);
         text(1.3, 1.3*10^-3, sprintf('*p=%1.4f',pvalcic(c-1,pd)));
         cdat = cellfun(@(x) nanmean(x(:, ARG.tw(1):ARG.tw(2)), 2), dat, 'UniformOutput', false);
+         % compute Bayes Factor based on t-value
+        [~,~,~,stats] = ttest(cdat{1},cdat{2});
+        BF10 = t1smpbf(stats.tstat,length(cdat{1}));
+        text(1.3, 1.5*10^-3, sprintf('BF=%1.3f',BF10));
         bh = bar([1 2], mean([cdat{1} cdat{2}], 1));
         bh.FaceColor = 'flat';
         bh.CData = [cols{1};cols{2}];
