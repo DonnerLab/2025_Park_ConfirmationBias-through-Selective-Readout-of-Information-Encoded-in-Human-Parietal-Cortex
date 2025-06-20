@@ -1,5 +1,6 @@
 % relevant data: gFTII_%s_parcels_pm%d_%s_np%d_msh.mat, gFTII_%s_parcels_pm%d_%s_np%d_msh_PC1.mat
 % gFTMI_%s_parcels_pm%d_%s_np%d.mat, gFTMI_%s_parcels_pm%d_%s_np%d_PC1.mat
+% can be found here: https://www.fdr.uni-hamburg.de/record/16918
 
 conditions = {'all', 'attn', 'choice'};
 cic = {'con','incon'};
