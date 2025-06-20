@@ -1,4 +1,5 @@
 % relevant data: gFTII_%s_parcels_pm%d_%s_np%d_msh.mat, gFTMI_%s_parcels_pm%d_%s_np%d_%s.mat
+% can be found in: https://www.fdr.uni-hamburg.de/record/16918
 
 conditions = {'attn', 'choice'};
 condt = {'Cue','Choice'};
