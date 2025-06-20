@@ -1,4 +1,5 @@
 % relevant data: gFTII_all_%s_parcels_%s_nosh.mat, gFTII_all_%s_parcels_%s_sh.mat
+% can be found in: https://www.fdr.uni-hamburg.de/record/16918
 
 addpath('plot_maps')
 addpath('BrewerMap')
