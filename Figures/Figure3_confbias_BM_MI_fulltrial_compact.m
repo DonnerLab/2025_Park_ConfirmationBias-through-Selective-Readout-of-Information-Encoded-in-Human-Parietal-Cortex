@@ -1,4 +1,5 @@
 % relevant data: gFTMI_all_%s_parcels_%s.mat
+% can be found in: https://www.fdr.uni-hamburg.de/record/16918
 
 addpath('plot_maps')
 addpath('BrewerMap')
