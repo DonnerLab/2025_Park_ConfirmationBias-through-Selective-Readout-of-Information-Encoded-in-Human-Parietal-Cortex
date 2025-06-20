@@ -6,8 +6,9 @@ MATLAB version: MATLAB2020b, MATLAB2024
 The Figure indices corresponding to figures in the manuscript are included in the script name.
 Script Figure3_confbias_BM*.m can be used to also plot brain maps in Figures S7, S12.
 Script Figure4_*.m plots for main Figure4, and also Supplementary Figures S8, S9 and S10. 
-The source data for plotting the figures can be found here at the University of Hamburg 
-Center for Sustainable Data Management: https://doi.org/10.25592/uhhfdm.16918
+The source data for plotting the figures (i.e., PCA component neural data for all participants, 
+aggregated information measures for all cortical parcels and all participants: gFTII_*.mat, gFTMI_*.mat, behavioral data, regression coefficient data) 
+can be found here at the University of Hamburg Center for Sustainable Data Management: https://doi.org/10.25592/uhhfdm.16918
 
 plot_maps folder contains the necessary data and code for plotting brain maps with 180 cortical parcels, with the Glasser atlas (Glasser et al. A multi-modal parcellation of human cerebral cortex, Nature. 2016 Aug 11;536(7615):171–178. doi: 10.1038/nature18933)
 
